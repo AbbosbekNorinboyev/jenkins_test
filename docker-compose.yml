@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  spring-boot-vehicle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jenkins-test
+    restart: always
+    ports:
+      - "4444:4444"
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-server
+    restart: always
+    privileged: true
+    user: root
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+
+volumes:
+    jenkins_home:
