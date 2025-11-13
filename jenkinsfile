@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     echo 'Kod repodan yuklanmoqda...'
-                    checkout scm
+                    git branch: 'master', url: 'https://github.com/AbbosbekNorinboyev/jenkins_test'
                 }
             }
         }
@@ -22,6 +22,13 @@ pipeline {
                     echo 'Maven orqali loyihani build qilinmoqda...'
                     sh 'mvn clean package -DskipTests'
                 }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testlarni ishga tushirish...'
+                sh 'mvn test'
             }
         }
 
