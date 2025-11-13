@@ -1,5 +1,5 @@
 package uz.pdp.test.test.enums;
 
-public enum Role {
+public enum Roles {
     USER, ADMIN
 }
