@@ -1,4 +1,4 @@
-package uz.pdp.test.test.enums;
+package uz.pdp.test.jenkins.enums;
 
 public enum Roles {
     USER, ADMIN
