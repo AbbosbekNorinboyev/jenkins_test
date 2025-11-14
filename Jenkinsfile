@@ -1,17 +1,22 @@
 pipeline {
 	agent any
 
+	tools {
+		maven = 'maven_3_9_11'
+	}
+
 	environment {
 		IMAGE_NAME = "spring-boot-app"
 		CONTAINER_NAME = "jenkins-test"
-		MAVEN = 'maven_3_9_11'
 	}
 
 	stages {
 		stage('Checkout & Build') {
 			steps {
 				script {
-					echo 'Kod repodan yuklanmoqda...'
+					echo "🔨 Maven bilan build qilinmoqda..."
+					checkout scm
+					sh 'mvn clean package -DskipTests'
 					git branch: 'master', url: 'https://github.com/AbbosbekNorinboyev/jenkins_test'
 				}
 			}
