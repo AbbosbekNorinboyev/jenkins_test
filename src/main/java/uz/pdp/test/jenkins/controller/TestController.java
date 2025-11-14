@@ -1,4 +1,4 @@
-package uz.pdp.test.test.controller;
+package uz.pdp.test.jenkins.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

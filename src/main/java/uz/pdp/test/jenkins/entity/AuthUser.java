@@ -1,10 +1,10 @@
-package uz.pdp.test.test.entity;
+package uz.pdp.test.jenkins.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import uz.pdp.test.test.enums.Roles;
+import uz.pdp.test.jenkins.enums.Roles;
 
 @Data
 @NoArgsConstructor
